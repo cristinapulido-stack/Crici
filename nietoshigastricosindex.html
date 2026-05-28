@@ -2,7 +2,1071 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-widt<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nietos Hi Gástricos — Comidería Sostenible</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --terracota: #C98663;
+      --cafe: #6B4A35;
+      --verde: #8FA65A;
+      --crema: #F4EFE8;
+      --beige: #D8C1A3;
+      --oscuro: #2C1A0E;
+      --blanco: #FDFAF6;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Crimson Pro', Georgia, serif;
+      background: var(--blanco);
+      color: var(--oscuro);
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE TEXTURE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(253, 250, 246, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--beige);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--cafe);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span { color: var(--terracota); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cafe);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--terracota); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      background: var(--cafe);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 5rem 5rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: var(--terracota);
+      opacity: 0.15;
+    }
+
+    .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--beige);
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--crema);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--terracota);
+    }
+
+    .hero-subtitle {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--beige);
+      margin: 1.5rem 0 2.5rem;
+      line-height: 1.5;
+    }
+
+    .hero-slogan {
+      display: inline-block;
+      border: 1px solid var(--terracota);
+      padding: 0.6rem 1.4rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--terracota);
+      text-transform: uppercase;
+    }
+
+    .hero-right {
+      background: var(--terracota);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 3rem;
+    }
+
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: var(--cafe);
+      opacity: 0.2;
+    }
+
+    .hero-illustration {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .maiz-svg {
+      width: 260px;
+      filter: drop-shadow(0 20px 40px rgba(44,26,14,0.3));
+      animation: floatUp 6s ease-in-out infinite;
+    }
+
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+
+    .hero-circle-text {
+      position: absolute;
+      bottom: 3rem; right: 3rem;
+      width: 110px; height: 110px;
+    }
+
+    .hero-circle-text svg {
+      animation: rotateSlow 20s linear infinite;
+    }
+
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 3rem 6rem;
+      background: var(--crema);
+    }
+
+    .divider-line { flex: 1; height: 1px; background: var(--beige); }
+    .divider-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracota);
+      white-space: nowrap;
+    }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 6rem 6rem; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracota);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--cafe);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--terracota);
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--crema);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: var(--oscuro);
+      margin-bottom: 1.2rem;
+      opacity: 0.85;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid var(--beige);
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(107,74,53,0.12);
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--terracota);
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--terracota);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cafe);
+      margin-top: 0.4rem;
+    }
+
+    /* ─── MISSION VISION ─── */
+    #mision {
+      background: var(--cafe);
+      padding: 5rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .mv-card {
+      border-left: 3px solid var(--terracota);
+      padding-left: 2rem;
+    }
+
+    .mv-card .section-label { color: var(--beige); opacity: 0.6; }
+    .mv-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--crema);
+      margin-bottom: 1rem;
+    }
+
+    .mv-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--beige);
+      opacity: 0.9;
+    }
+
+    /* ─── MENU ─── */
+    #menu {
+      background: var(--blanco);
+    }
+
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .menu-card {
+      background: var(--crema);
+      border: 1px solid var(--beige);
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(.22,.61,.36,1), box-shadow 0.35s;
+      cursor: default;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(107,74,53,0.15);
+    }
+
+    .menu-card:nth-child(2) { margin-top: 2.5rem; }
+    .menu-card:nth-child(4) { margin-top: -2rem; }
+
+    .menu-img-area {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      background: linear-gradient(135deg, var(--beige) 0%, var(--crema) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-img-area::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(107,74,53,0.08) 100%);
+    }
+
+    .menu-body {
+      padding: 1.5rem;
+    }
+
+    .menu-price {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--terracota);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+
+    .menu-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cafe);
+      line-height: 1.25;
+      margin-bottom: 0.7rem;
+    }
+
+    .menu-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--oscuro);
+      opacity: 0.7;
+    }
+
+    .menu-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--verde);
+      color: white;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    /* ─── SUSTAINABILITY PILLARS ─── */
+    #sostenibilidad {
+      background: var(--verde);
+      padding: 5rem 6rem;
+    }
+
+    #sostenibilidad .section-label { color: var(--crema); opacity: 0.7; }
+    #sostenibilidad .section-title { color: var(--blanco); }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .pillar {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s;
+    }
+
+    .pillar:hover { background: rgba(255,255,255,0.22); }
+
+    .pillar-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .pillar h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.7rem;
+    }
+
+    .pillar p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* ─── SECTORS TABLE ─── */
+    #sectores {
+      background: var(--crema);
+    }
+
+    .sectors-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2.5rem;
+      font-size: 0.95rem;
+    }
+
+    .sectors-table thead tr {
+      background: var(--cafe);
+      color: var(--crema);
+    }
+
+    .sectors-table th {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 1.5rem;
+      text-align: left;
+    }
+
+    .sectors-table td {
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid var(--beige);
+      line-height: 1.6;
+      vertical-align: top;
+      color: var(--oscuro);
+    }
+
+    .sectors-table tbody tr:nth-child(even) { background: white; }
+    .sectors-table tbody tr:hover { background: rgba(201,134,99,0.07); }
+
+    .sector-badge {
+      display: inline-block;
+      background: var(--terracota);
+      color: white;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.08em;
+      border-radius: 2px;
+    }
+
+    /* ─── PUBLIC TARGET ─── */
+    #publico {
+      background: var(--blanco);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .target-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .target-list li {
+      display: flex;
+      gap: 1rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--beige);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--oscuro);
+      opacity: 0.85;
+    }
+
+    .target-list li::before {
+      content: '→';
+      color: var(--terracota);
+      font-family: 'Space Mono', monospace;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .identity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .color-swatch {
+      padding: 1.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .swatch-dot {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+
+    .swatch-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }
+
+    .swatch-hex {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      opacity: 0.6;
+    }
+
+    /* ─── TEAM ─── */
+    #equipo {
+      background: var(--cafe);
+      text-align: center;
+    }
+
+    #equipo .section-label { color: var(--beige); opacity: 0.6; }
+    #equipo .section-title { color: var(--crema); }
+
+    .team-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+
+    .team-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 2rem 2.5rem;
+      min-width: 180px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .team-card:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-4px);
+    }
+
+    .team-avatar {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--terracota);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: white;
+      margin: 0 auto 1rem;
+    }
+
+    .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--crema);
+    }
+
+    .team-role {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--beige);
+      opacity: 0.6;
+      margin-top: 0.3rem;
+    }
+
+    .school-info {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .school-info p {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--beige);
+      opacity: 0.5;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--oscuro);
+      padding: 2.5rem 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--crema);
+    }
+
+    footer .logo span { color: var(--terracota); }
+
+    footer p {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--beige);
+      opacity: 0.4;
+      text-transform: uppercase;
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { display: none; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 7rem 2.5rem 4rem; }
+      section { padding: 4rem 2rem; }
+      #about, #mision, #publico { grid-template-columns: 1fr; gap: 3rem; }
+      .menu-grid { grid-template-columns: 1fr 1fr; }
+      .menu-card:nth-child(2), .menu-card:nth-child(4) { margin-top: 0; }
+      .pillars { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .divider { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Nietos Hi <span>Gástricos</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">Nosotros</a></li>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#sostenibilidad">Sostenibilidad</a></li>
+      <li><a href="#sectores">Sectores</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <p class="hero-tag">Comidería Sostenible · Kilómetro Cero · Residuo Cero</p>
+      <h1 class="hero-title">Nietos Hi<br><em>Gástricos</em></h1>
+      <p class="hero-subtitle">"Sabor ancestral,<br>compromiso vital."</p>
+      <a href="#menu" class="hero-slogan">Ver Menú Tradicional →</a>
+    </div>
+    <div class="hero-right">
+      <div class="hero-illustration">
+        <!-- Cocina de leña con maíz - SVG ilustrativo -->
+        <svg class="maiz-svg" viewBox="0 0 260 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cocina base -->
+          <rect x="40" y="220" width="180" height="80" rx="4" fill="#6B4A35" opacity="0.9"/>
+          <rect x="55" y="230" width="150" height="60" rx="2" fill="#2C1A0E" opacity="0.5"/>
+          <!-- Fuego -->
+          <ellipse cx="130" cy="222" rx="30" ry="8" fill="#C98663" opacity="0.6"/>
+          <path d="M110 220 Q120 200 130 210 Q140 195 150 220" fill="#F4A460" opacity="0.8"/>
+          <path d="M118 218 Q126 202 130 212 Q134 198 142 218" fill="#FFD700" opacity="0.6"/>
+          <!-- Tallo maíz -->
+          <path d="M130 215 Q125 170 128 120 Q130 80 130 40" stroke="#8FA65A" stroke-width="5" stroke-linecap="round"/>
+          <!-- Hojas maíz -->
+          <path d="M128 160 Q100 140 90 120 Q110 130 128 150" fill="#8FA65A" opacity="0.85"/>
+          <path d="M130 140 Q158 120 168 100 Q148 112 130 132" fill="#8FA65A" opacity="0.85"/>
+          <path d="M128 100 Q100 80 88 58 Q108 72 128 92" fill="#6B9940" opacity="0.75"/>
+          <path d="M130 85 Q155 65 165 45 Q147 60 130 78" fill="#6B9940" opacity="0.75"/>
+          <!-- Mazorca -->
+          <ellipse cx="130" cy="48" rx="14" ry="30" fill="#D4A843"/>
+          <line x1="120" y1="25" x2="118" y2="70" stroke="#B8892E" stroke-width="1.2" opacity="0.6"/>
+          <line x1="125" y1="22" x2="123" y2="72" stroke="#B8892E" stroke-width="1.2" opacity="0.6"/>
+          <line x1="130" y1="20" x2="130" y2="74" stroke="#B8892E" stroke-width="1.2" opacity="0.6"/>
+          <line x1="135" y1="22" x2="137" y2="72" stroke="#B8892E" stroke-width="1.2" opacity="0.6"/>
+          <line x1="140" y1="25" x2="142" y2="70" stroke="#B8892E" stroke-width="1.2" opacity="0.6"/>
+          <!-- Hojas mazorca -->
+          <path d="M116 30 Q108 10 120 5 Q118 20 116 30z" fill="#8FA65A"/>
+          <path d="M144 30 Q152 10 140 5 Q142 20 144 30z" fill="#8FA65A"/>
+        </svg>
+      </div>
+      <!-- Rotating text badge -->
+      <div class="hero-circle-text">
+        <svg viewBox="0 0 110 110" width="110" height="110">
+          <defs>
+            <path id="circle" d="M 55,55 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"/>
+          </defs>
+          <text fill="#F4EFE8" font-family="Space Mono, monospace" font-size="9" letter-spacing="3" opacity="0.7">
+            <textPath href="#circle">NICARAGUA · ORGÁNICO · SOSTENIBLE · </textPath>
+          </text>
+          <circle cx="55" cy="55" r="8" fill="#F4EFE8" opacity="0.5"/>
+          <text x="55" y="59" text-anchor="middle" fill="#C98663" font-size="8">✦</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-text">Emprendimiento Gastronómico · Anglo School · 10mo Grado · Economía</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-text reveal">
+      <p class="section-label">Quiénes somos</p>
+      <h2 class="section-title">La comidería que <em>rescata</em> nuestras raíces</h2>
+      <p>Nietos Hi Gástricos es una comidería tradicional nicaragüense con un concepto modernizado de <strong>kilómetro cero</strong> y <strong>residuo cero</strong>. Elaboramos y vendemos platillos típicos utilizando exclusivamente ingredientes 100% orgánicos, frescos y provenientes de cooperativas agrícolas locales.</p>
+      <p>A través de un menú dinámico, rescatamos recetas ancestrales presentadas en un formato eco-amigable: vajillas biodegradables, jícaras y hojas de plátano, con una plataforma digital para pedidos anticipados que minimiza el desperdicio.</p>
+      <p>Nuestro nombre evoca los sabores autóctonos ("Gástricos") combinados con el respeto a nuestros orígenes culturales y familiares ("Nietos Hi").</p>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat-card">
+        <div class="stat-num">0km</div>
+        <div class="stat-label">Ingredientes locales</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0%</div>
+        <div class="stat-label">Plástico y residuos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Orgánico y natural</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Cooperativas asociadas</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN Y VISIÓN -->
+  <section id="mision">
+    <div class="mv-card reveal">
+      <p class="section-label">Misión</p>
+      <h3>Nuestra razón de ser</h3>
+      <p>Ofrecer una experiencia gastronómica nicaragüense auténtica y de alta calidad, fundamentada en el uso de ingredientes locales orgánicos y prácticas de residuo cero, promoviendo el bienestar de nuestros clientes, el crecimiento justo de los productores locales y la preservación de nuestra identidad cultural.</p>
+    </div>
+    <div class="mv-card reveal">
+      <p class="section-label">Visión</p>
+      <h3>Hacia dónde vamos</h3>
+      <p>Convertirse para el año 2028 en el modelo de referencia de la comidería sostenible en Nicaragua, demostrando que la cocina tradicional y popular puede ser altamente rentable, ecológica y un motor central para la economía creativa comunitaria.</p>
+    </div>
+  </section>
+
+  <!-- MENÚ -->
+  <section id="menu">
+    <div class="menu-header reveal">
+      <div>
+        <p class="section-label">Carta</p>
+        <h2 class="section-title">Menú Típico <em>Sostenible</em></h2>
+      </div>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <div class="menu-img-area">🫕</div>
+        <div class="menu-body">
+          <div class="menu-price">C$ 140.00</div>
+          <div class="menu-name">Indio Viejo Sazón de la Tierra</div>
+          <div class="menu-desc">Guiso espeso de masa de maíz tierno con carne de res desmenuzada, achiote artesanal, cebolla, chiltoma e hierbabuena fresca de huertos locales.</div>
+          <span class="menu-tag">✦ Maíz criollo no transgénico</span>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-img-area">🍚</div>
+        <div class="menu-body">
+          <div class="menu-price">C$ 95.00</div>
+          <div class="menu-name">Gallo Pinto Supremo en Jícara</div>
+          <div class="menu-desc">Arroz de grano entero con frijoles orgánicos, frito en aceite de coco. Queso tierno artesanal y maduro frito. Servido en jícara artesanal reutilizable.</div>
+          <span class="menu-tag">✦ Servido en jícara artesanal</span>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-img-area">🫔</div>
+        <div class="menu-body">
+          <div class="menu-price">C$ 120.00</div>
+          <div class="menu-name">Nacatamal Orgánico de los Domingos</div>
+          <div class="menu-desc">Masa de maíz suave con cerdo de libre pastoreo, papas, arroz, tomate y naranja agria. Envuelto en hoja de plátano local, cocido a la perfección.</div>
+          <span class="menu-tag">✦ Empaque 100% biodegradable</span>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-img-area">🥗</div>
+        <div class="menu-body">
+          <div class="menu-price">C$ 130.00</div>
+          <div class="menu-name">Vigorón Sostenible de la Abuela</div>
+          <div class="menu-desc">Yuca agroecológica de Ticuantepe, chicharrón artesanal y ensalada de repollo con vinagre de guineo natural. Servido sobre hoja de chagüite.</div>
+          <span class="menu-tag">✦ Tubérculos nativos</span>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-img-area">☕</div>
+        <div class="menu-body">
+          <div class="menu-price">C$ 50.00</div>
+          <div class="menu-name">Fresco de Cacao Tradicional en Leche</div>
+          <div class="menu-desc">Semillas de cacao orgánico molidas en piedra, arroz y canela en rama, con leche fresca de ganadería sostenible y miel de abeja multifloral.</div>
+          <span class="menu-tag">✦ Cacao de Waslala</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOSTENIBILIDAD -->
+  <section id="sostenibilidad">
+    <p class="section-label">Nuestros pilares</p>
+    <h2 class="section-title">Compromiso <em>Sostenible</em></h2>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="pillar-icon">🌱</div>
+        <h4>Comercio de Proximidad</h4>
+        <p>Adquirimos todas nuestras verduras, granos básicos y carnes de pequeños productores y huertos familiares de Ticuantepe, Nindirí y Masaya, asegurando precio justo y dinamizando la economía rural.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">♻️</div>
+        <h4>Cero Plástico · Cero Residuo</h4>
+        <p>Se elimina por completo el uso de empaques plásticos. Para llevar: contenedores de cartón kraft compostable y hojas de plátano. Los residuos orgánicos se procesan en compostaje devuelto a las cooperativas.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">🏺</div>
+        <h4>Patrimonio Inmaterial</h4>
+        <p>Empleamos cocineras tradicionales y rescatamos métodos de cocción lentos, como cocinas eco-eficientes de biomasa. Protegemos y ponemos en valor el patrimonio culinario nicaragüense.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORES -->
+  <section id="sectores">
+    <p class="section-label reveal">Economía Creativa</p>
+    <h2 class="section-title reveal">Sectores Económicos <em>Vinculados</em></h2>
+    <table class="sectors-table reveal">
+      <thead>
+        <tr>
+          <th>Sector Vinculado</th>
+          <th>Origen y Relación Local</th>
+          <th>Innovación Aplicada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="sector-badge">Gastronómico</div><br/>
+            <strong>Sector Gastronómico y Turístico</strong><br/>(Patrimonio Cultural)
+          </td>
+          <td>Recetarios tradicionales de Masaya, Granada y León. Integra producción agrícola, hostelería y turismo en torno a la identidad cultural.</td>
+          <td>Rediseño estético y nutricional de platillos típicos. Plataformas digitales de reservas y códigos QR que muestran la historia del productor que cultivó los ingredientes.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="sector-badge">Artesanal</div><br/>
+            <strong>Alfarería y Artesanías Utilitarias</strong>
+          </td>
+          <td>Comunidades artesanales de San Juan de Oriente y Totogalpa, con tradición precolombina transmitida de generación en generación.</td>
+          <td>Vajillas de barro curado y canastas de sompopo para presentación de alimentos. Fusión de técnicas ancestrales con nuevas paletas contemporáneas y neo-artesanía.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="sector-badge">Agroecológico</div><br/>
+            <strong>Sector Agroecológico de Pequeña Escala</strong>
+          </td>
+          <td>Cooperativas hortícolas de Ticuantepe y Jinotega. Metodología "Campesino a Campesino" históricamente impulsada en Nicaragua.</td>
+          <td>Biofertilizantes y repelentes naturales. Riego por goteo. Plataforma web con trazabilidad de ingredientes. Economía circular urbana con residuos orgánicos.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- PÚBLICO META & IDENTIDAD VISUAL -->
+  <section id="publico">
+    <div class="reveal">
+      <p class="section-label">A quién nos dirigimos</p>
+      <h2 class="section-title">Público <em>Meta</em></h2>
+      <ul class="target-list">
+        <li><strong>Demografía:</strong> Familias locales, trabajadores urbanos, estudiantes universitarios y jóvenes adultos entre 18 y 55 años que buscan alimentación de calidad.</li>
+        <li><strong>Geografía:</strong> Residentes y visitantes en zona urbana seleccionada, con radio de entrega a domicilio vía plataforma web.</li>
+        <li><strong>Psicografía:</strong> Personas que aprecian la comida casera auténtica pero exigen higiene, presentación y responsabilidad social y ecológica.</li>
+        <li><strong>Tecnología:</strong> Usuarios de tecnología móvil que valoran la rapidez de pedidos anticipados para optimizar su tiempo diario.</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <p class="section-label">Identidad Visual</p>
+      <h2 class="section-title">Paleta de <em>Colores</em></h2>
+      <div class="identity-grid">
+        <div class="color-swatch" style="background:#C98663;">
+          <div class="swatch-dot" style="background:#F4EFE8;"></div>
+          <span class="swatch-name" style="color:white;">Terracota Artesanal</span>
+          <span class="swatch-hex" style="color:white;">#C98663</span>
+        </div>
+        <div class="color-swatch" style="background:#6B4A35;">
+          <div class="swatch-dot" style="background:#F4EFE8;"></div>
+          <span class="swatch-name" style="color:#F4EFE8;">Marrón Café Tostado</span>
+          <span class="swatch-hex" style="color:#F4EFE8;">#6B4A35</span>
+        </div>
+        <div class="color-swatch" style="background:#8FA65A;">
+          <div class="swatch-dot" style="background:#F4EFE8;"></div>
+          <span class="swatch-name" style="color:white;">Verde Maíz Vivo</span>
+          <span class="swatch-hex" style="color:white;">#8FA65A</span>
+        </div>
+        <div class="color-swatch" style="background:#D8C1A3; border:1px solid #beaa90;">
+          <div class="swatch-dot" style="background:#6B4A35;"></div>
+          <span class="swatch-name" style="color:#6B4A35;">Beige Tierra</span>
+          <span class="swatch-hex" style="color:#6B4A35;">#D8C1A3</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section id="equipo">
+    <p class="section-label">Proyecto Integrador · 10mo Grado</p>
+    <h2 class="section-title">El <em>Equipo</em></h2>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">AJ</div>
+        <div class="team-name">Abigail Jarquín</div>
+        <div class="team-role">Estudiante</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">CL</div>
+        <div class="team-name">Cristina Leiva</div>
+        <div class="team-role">Estudiante</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">EB</div>
+        <div class="team-name">Ericka Brizuela</div>
+        <div class="team-role">Estudiante</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">MP</div>
+        <div class="team-name">Miguel Piedra</div>
+        <div class="team-role">Estudiante</div>
+      </div>
+    </div>
+    <div class="school-info">
+      <p>Institución: Anglo School</p>
+      <p>Asignatura: Economía · Unidad: Fundamentos económicos e históricos del desarrollo en Nicaragua</p>
+      <p>Docente: Lic. Leonte Espinoza</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="logo">Nietos Hi <span>Gástricos</span></div>
+    <p>"Sabor ancestral, compromiso vital."</p>
+    <p>© 2025 · Comidería Sostenible · Nicaragua</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
+h, initial-scale=1.0" />
   <title>Nietos Hi Gástricos — Comidería Sostenible</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
